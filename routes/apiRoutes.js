@@ -1,16 +1,25 @@
 const router = require('express').Router();
-const handler = require('../public/assets/js/index')
-const { notes } = require('../db/db.json');
-const { selectedNote } = require("../lib/notes.js")
+const uuid = require('uuid');
+const { readNotes, createNewNote } = require('../lib/notesHandler')
+const { notes } = require('../db/db');
+
 
 router.get('/notes', (req, res) => {
-    let results = notes;
-    handler.getNotes(results);
+
+    console.log("This part is working");
+    console.log(notes);
+    const notesList = readNotes();
+
+    res.json(notesList);
          
 });
 
 router.post('/notes', (req, res) => {
-    handler.saveNote(req.body)
+    req.body.id = uuid.v4();
+    
+    const note = createNewNote(req.body, notes)
+
+    res.json(note);
 
 });
 
