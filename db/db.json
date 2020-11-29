@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "f2abe57a-3619-43bb-ad80-ce76c9b9a57a",
+    "title": "Sample note",
+    "text": "sample text"
+  },
+  {
+    "id": "0280c0db-4a6e-47bb-8374-b8caf7074312",
+    "title": "Another Note",
+    "text": "Some more text"
+  },
+  {
+    "id": "3580fb12-b8f7-498f-b3f9-2771b0f2ac1b",
+    "title": "asdf",
+    "text": "asdf"
+  }
+]
