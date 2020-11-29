@@ -5,10 +5,12 @@ const htmlRoutes = require('./routes/htmlRoutes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// For displaying webpage html, css, javascript
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 
+// Connect to routes
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 

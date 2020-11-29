@@ -3,7 +3,7 @@ const uuid = require('uuid');
 const { readNotes, createNewNote, deleteNote } = require('../lib/notesHandler')
 const { notes } = require('../db/db');
 
-
+// Pull notes from db.json
 router.get('/notes', (req, res) => {
 
     const notesList = readNotes();
@@ -12,6 +12,7 @@ router.get('/notes', (req, res) => {
          
 });
 
+// Add note to list
 router.post('/notes', (req, res) => {
     req.body.id = uuid.v4();
     
@@ -21,9 +22,10 @@ router.post('/notes', (req, res) => {
 
 });
 
+// Delete note from list
 router.delete('/notes/:id', (req, res) => {
-    deleteNote(req.params.id);
-    return router;
+    const deletedNote = deleteNote(req.params.id);
+    res.json(deletedNote);
 
 });
 
